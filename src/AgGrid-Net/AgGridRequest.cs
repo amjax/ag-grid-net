@@ -1,6 +1,6 @@
 ﻿namespace AgGrid
 {
-    public class AgGridDataSource
+    public class AgGridRequest
     {
         public SortModel[] SortModel { get; set; } = null!;
     }
