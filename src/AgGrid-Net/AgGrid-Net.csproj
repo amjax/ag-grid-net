@@ -9,7 +9,7 @@
 		<PackageProjectUrl>https://github.com/ag-grid-net/ag-grid-net</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/ag-grid-net/ag-grid-net</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
-		<Version>0.0.1</Version>
+		<Version>0.0.2</Version>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<LangVersion>10</LangVersion>
 	</PropertyGroup>
