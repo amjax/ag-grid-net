@@ -1,13 +1,23 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
-    <RootNamespace>AgGrid</RootNamespace>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<RootNamespace>AgGrid</RootNamespace>
+		<Nullable>enable</Nullable>
+		<Authors>Ahmad.Chehreghani</Authors>
+		<Company>Achehre</Company>
+		<Description>A datasource for ag-grid</Description>
+		<PackageProjectUrl>https://github.com/ag-grid-net/ag-grid-net</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/ag-grid-net/ag-grid-net</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<Version>0.0.1</Version>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<LangVersion>10</LangVersion>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="AtEase" Version="1.0.29.12" />
-  </ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AtEase" Version="1.0.29.12" />
+	</ItemGroup>
 
 </Project>
