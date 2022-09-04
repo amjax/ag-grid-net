@@ -24,6 +24,14 @@ namespace AgGrid
             Sort = sort;
         }
 
+        public SortModel(string colId, ListSortDirection sort)
+        {
+            ColId = colId;
+            Sort = GetSort(sort);
+        }
+
+        private string GetSort(ListSortDirection direction) =>
+            _sortRange.Single(s => s.sortDirection == direction).sort;
 
         public ListSortDirection SortDirection => _sortRange.Single(s => s.sort == Sort).sortDirection;
 

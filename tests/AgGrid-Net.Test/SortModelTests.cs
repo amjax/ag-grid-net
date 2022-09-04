@@ -1,3 +1,5 @@
+using AgGrid.Test.Share;
+
 namespace AgGrid.Test
 {
     public class SortModelTests
@@ -20,7 +22,14 @@ namespace AgGrid.Test
             SortModel sortModel = SortModelBuilder.CreateNew().SetSort(sort).Build();
             sortModel.SortDirection.Should().Be(expectedSortDirection);
         }
-
+        [Theory]
+        [InlineData( ListSortDirection.Ascending, "asc")]
+        [InlineData( ListSortDirection.Descending, "desc")]
+        public void SetSort_SetSort( ListSortDirection sortDirection, string expectedSort)
+        {
+            SortModel sortModel = new SortModel("colId", sortDirection);
+            sortModel.Sort.Should().Be(expectedSort);
+        }
 
         [Fact]
         public void Create_ValidValues_CreateSortModel()

@@ -1,4 +1,4 @@
-﻿namespace AgGrid.Test
+﻿namespace AgGrid.Test.Share
 {
     public class SortModelBuilder
     {
