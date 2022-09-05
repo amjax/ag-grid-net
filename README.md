@@ -3,7 +3,7 @@
 [changeLog]: ./CHANGELOG.md
 
 # Ag-Grid-Net
-[![NuGet](https://img.shields.io/nuget/v/AtEase.svg)](https://www.nuget.org/packages/ag-grid-net)
+[![NuGet](https://img.shields.io/nuget/v/ag-grid-net.svg)](https://www.nuget.org/packages/ag-grid-net)
 	Ag-Grid-Net.
 
 **Quick links**
