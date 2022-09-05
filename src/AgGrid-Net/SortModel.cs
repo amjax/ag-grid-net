@@ -17,6 +17,11 @@ namespace AgGrid
         public SortModel()
         {
         }
+        public SortModel(string colId)
+        {
+            ColId = colId;
+            Sort = GetSort(ListSortDirection.Ascending);
+        }
 
         public SortModel(string colId, string sort)
         {

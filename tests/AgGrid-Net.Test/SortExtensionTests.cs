@@ -1,5 +1,6 @@
-﻿using AgGrid.Extensions;
+﻿using AgGrid.AgGridExtensions;
 using AgGrid.Test.Share;
+using AgGrid.Test.Share.TestModel;
 
 namespace AgGrid.Test
 {
@@ -8,20 +9,124 @@ namespace AgGrid.Test
         [Fact]
         public void Sort_ValidData_Sort()
         {
-            IQueryable<TestModel.TestModel> models = new List<TestModel.TestModel>
-                {new(2, "2"), new TestModel.TestModel(1, "1")}.AsQueryable();
+            IQueryable<TestModel> models = new List<TestModel>
+            {
+                new(2, "2"),
+                new(1, "1")
+            }.AsQueryable();
+
 
             SortModel sortModel = SortModelBuilder.CreateNew()
-                                                  .SetColId(nameof(TestModel.TestModel.Id))
+                                                  .SetColId(nameof(TestModel.Id))
                                                   .SetSort("asc")
                                                   .Build();
 
+            AgGridRequest request = new AgGridRequest
+            {
+                SortModel = new List<SortModel>
+                    {sortModel}
+            };
 
-            IQueryable sortedResult = models.Sort<TestModel.TestModel>(new[] {sortModel});
 
-            sortedResult.Execute<TestModel.TestModel, List<TestModel.TestModel>>()
-                        .Should()
-                        .BeEquivalentTo(new List<TestModel.TestModel> {new(2, "2"), new(1, "1")});
+            AgGridResult result = models.ToAgGridResult(request);
+
+
+            result.Data.Should()
+                  .BeEquivalentTo(new List<TestModel>
+                                  {
+                                      new(1, "1"),
+                                      new(2, "2")
+                                  },
+                                  options => options.WithStrictOrdering());
         }
+
+        [Fact]
+        public void Sort_ValidData_2_Sort()
+        {
+            IQueryable<TestModel> models = new List<TestModel>
+            {
+                new(2, "B"),
+                new(2, "A"),
+                new(1, "B"),
+                new(1, "A")
+            }.AsQueryable();
+
+
+            SortModel sortModelId = SortModelBuilder.CreateNew()
+                                                    .SetColId(nameof(TestModel.Id))
+                                                    .SetSort("asc")
+                                                    .Build();
+
+            SortModel sortModelName = SortModelBuilder.CreateNew()
+                                                      .SetColId(nameof(TestModel.Name))
+                                                      .SetSort("asc")
+                                                      .Build();
+
+
+            AgGridRequest request = new AgGridRequest
+            {
+                SortModel = new List<SortModel>
+                    {sortModelId, sortModelName}
+            };
+
+
+            AgGridResult result = models.ToAgGridResult(request);
+
+
+            result.Data.Should()
+                  .BeEquivalentTo(new List<TestModel>
+                                  {
+                                      new(1, "A"),
+                                      new(1, "B"),
+                                      new(2, "A"),
+                                      new(2, "B")
+                                  },
+                                  options => options.WithStrictOrdering());
+        }
+
+        [Fact]
+        public void Sort_ValidData_2_Sort_desc()
+        {
+            IQueryable<TestModel> models = new List<TestModel>
+            {
+                new(2, "B"),
+                new(2, "A"),
+                new(1, "B"),
+                new(1, "A")
+            }.AsQueryable();
+
+
+            SortModel sortModelId = SortModelBuilder.CreateNew()
+                                                    .SetColId(nameof(TestModel.Id))
+                                                    .SetSort("asc")
+                                                    .Build();
+
+            SortModel sortModelName = SortModelBuilder.CreateNew()
+                                                      .SetColId(nameof(TestModel.Name))
+                                                      .SetSort("desc")
+                                                      .Build();
+
+
+            AgGridRequest request = new AgGridRequest
+            {
+                SortModel = new List<SortModel>
+                    {sortModelId, sortModelName}
+            };
+
+
+            AgGridResult result = models.ToAgGridResult(request);
+
+
+            result.Data.Should()
+                  .BeEquivalentTo(new List<TestModel>
+                                  {
+                                      new(1, "B"),
+                                      new(1, "A"),
+                                      new(2, "B"),
+                                      new(2, "A"),
+                                  },
+                                  options => options.WithStrictOrdering());
+        }
+
     }
 }

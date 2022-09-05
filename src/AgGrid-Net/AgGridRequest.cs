@@ -1,7 +1,9 @@
-﻿namespace AgGrid
+﻿using System.Collections.Generic;
+
+namespace AgGrid
 {
     public class AgGridRequest
     {
-        public SortModel[] SortModel { get; set; } = null!;
+        public IList<SortModel> SortModel { get; set; } = null!;
     }
 }

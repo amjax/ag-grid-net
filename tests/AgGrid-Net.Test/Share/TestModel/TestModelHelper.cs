@@ -1,4 +1,4 @@
-﻿namespace AgGrid.Test.TestModel
+﻿namespace AgGrid.Test.Share.TestModel
 {
     public static class TestModelHelper
     {

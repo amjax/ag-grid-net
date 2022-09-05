@@ -15,7 +15,7 @@
 
 
 	<ItemGroup>
-		<PackageReference Include="AtEase" Version="1.0.29.12" />
+		<PackageReference Include="AtEase" Version="1.1.0" />
 		<PackageReference Include="MinVer" Version="4.2.0">
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
