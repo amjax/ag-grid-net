@@ -23,8 +23,9 @@ namespace AgGrid.Test
 
             AgGridRequest request = new AgGridRequest
             {
-                SortModel = new List<SortModel>
-                    {sortModel}
+                SortModel = new List<SortModel> { sortModel },
+                StartRow = 0,
+                EndRow = models.Count(),
             };
 
 
@@ -65,8 +66,9 @@ namespace AgGrid.Test
 
             AgGridRequest request = new AgGridRequest
             {
-                SortModel = new List<SortModel>
-                    {sortModelId, sortModelName}
+                SortModel = new List<SortModel> { sortModelId, sortModelName },
+                StartRow = 0,
+                EndRow = models.Count(),
             };
 
 
@@ -109,8 +111,9 @@ namespace AgGrid.Test
 
             AgGridRequest request = new AgGridRequest
             {
-                SortModel = new List<SortModel>
-                    {sortModelId, sortModelName}
+                SortModel = new List<SortModel> { sortModelId, sortModelName },
+                StartRow = 0,
+                EndRow = models.Count(),
             };
 
 

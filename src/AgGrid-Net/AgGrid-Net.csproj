@@ -16,6 +16,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="AtEase" Version="1.1.0" />
+		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
 		<PackageReference Include="MinVer" Version="4.2.0">
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
